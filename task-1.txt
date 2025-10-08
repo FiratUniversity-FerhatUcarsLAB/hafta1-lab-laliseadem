@@ -120,4 +120,4 @@ Farklı çözüm yolları olsa da en etkili yöntem kişiye göre değişir:
 Mesela
 Dikkati kolay dağılıyorsa → Pomodoro yöntemi,
 Çok dersi varsa → Zaman temelli,
-Bazı derslerde çok eksiği varsa → Öncelik temelli en eygun olabilir.
+Bazı derslerde çok eksiği varsa → Öncelik temelli en eygun olabilir .
