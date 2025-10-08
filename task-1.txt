@@ -1,4 +1,123 @@
-Öğrenci No:
-AD-SOYAD:
-
+Öğrenci No: 240541610
+AD-SOYAD: Lalise Adem Wado
+Sınav Çalışma Planı 
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+
+Problem Analizi
+
+Öğrencinin önünde yaklaşan bir sınav var ve tüm konuları etkili bir şekilde tekrar edip sınava hazır hale gelmesi gerekiyor.
+Ancak zamanı sınırlı, bu yüzden dersleri, süreleri ve öncelikleri planlı şekilde organize etmesi gerekiyor.
+Amaç, sınav gününe kadar tüm dersleri düzenli, verimli ve zamanında çalışarak
+en yüksek başarıyı elde etmek ve stres olmadan sınava hazır hale gelmek.
+
+Bu Hedefe Nasıl Ulaşabiliriz
+
+1. Zamanı analiz etmek
+2. Dersleri belirlemek
+3. Önceliklendirme 
+4. Günlük çalışma planı oluşturmak
+5. Takip etmek
+6. Son gün genel tekrar yapmak
+
+Sınav Çalışma Planı Oluşturma pseudocodu
+
+BAŞLA
+1. SINAV_TARİHİ, BUGÜN_TARİHİ değerlerini al
+2. KALAN_GÜN = SINAV_TARİHİ - BUGÜN_TARİHİ hesapla
+3. EĞER KALAN_GÜN <= 0 ise
+       YAZ "Sınav günü gelmiş veya geçmiş. Plan yapılamaz."
+       DUR
+   DEĞİLSE
+       DEVAM ET
+4. ÇALIŞILACAK_DERSLER listesini oluştur
+   Örneğin: ["Matematik", "Fizik", "Programlama", "İngilizce"]
+5. HER DERS için ZORLUK_SEVİYESİ belirle (1 = kolay, 5 = zor)
+6. TOPLAM_ZORLUK = tüm derslerin ZORLUK_SEVİYESİ toplamı
+7. HER DERS için:
+       ÇALIŞMA_SÜRESİ = (ZORLUK_SEVİYESİ / TOPLAM_ZORLUK) * KALAN_GÜN
+       DERS_PLANINA ekle (DERS, ÇALIŞMA_SÜRESİ)
+8. HER GÜN için:
+       a. Sabah: Önceki günün kısa tekrarını yap (30 dk)
+       b. Günün ana dersi üzerinde 2–3 saat çalış
+       c. Akşam: Test çöz ve not çıkar (1 saat)
+       d. Haftada 1 gün genel tekrar yap
+9. Her günün sonunda:
+       ÇALIŞMA_TAMAMLANDI mı kontrol et
+       EĞER tamamlanmadıysa
+            ERTESİ_GÜNE ekle
+10. SON GÜN:
+        - Genel tekrar yap
+        - Notlara hızlıca göz at
+        - Erken uyu ve dinlen
+11. YAZ "Sınav çalışma planı tamamlandı!"
+BİTİR
+
+LLM ile soru ve cevab
+
+Sınav çalışma planı konusundaki problem tam olarak nedir?
+Asıl problem, sınavdan önceki sınırlı zamanı etkili bir şekilde organize etmektir.
+Kaç günün kaldığını, hangi derslerin çalışılacağını ve her birine ne kadar zaman ayrılacağını belirlememiz gerekir.
+
+Peki bu algoritmanın amacı nedir?
+Amaç, öğrencinin sınavdan önceki tüm konuları dengeli ve gerçekçi bir şekilde tekrar etmesini sağlayan bir çalışma planı oluşturmaktır.
+Yani “Her şeyi nasıl çalışacağım?” sorusunu küçük, yönetilebilir adımlara ayırmaktır.
+
+Bunu nasıl pseudocode olarak yazabiliriz?
+İşte sınav çalışma planı için adım adım basit bir pseudocode:
+
+BAŞLA
+1. Sınav tarihini ve bugünün tarihini al
+2. Kalan gün sayısını hesapla
+3. Çalışılacak tüm dersleri listele
+4. Her derse bir zorluk seviyesi ata (1–5 arası)
+5. Toplam zorluk değerini hesapla, 
+6. Her ders için:
+       Çalışma süresi = (Zorluk / Toplam zorluk) * Kalan gün
+7. Günlük tekrar, çalışma ve test çözme planı oluştur
+8. Sınav gününe kadar tekrarla
+BİTİR
+
+
+5. adımda neden toplam zorlukla bölüyoruz?
+Çünkü bu sayede toplam çalışma süresi, derslerin zorluk derecesine göre orantılı olarak dağıtılır.
+Zor derslere daha fazla, kolay derslere daha az süre verilir  böylece denge sağlanır.
+
+Başka çalışma planı algoritmaları da var mı?
+Evet, birkaç farklı yöntem vardır:
+Zaman temelli yöntem: Toplam saatleri günlere eşit şekilde paylaştırır.
+Öncelik temelli yöntem: En önemli veya en zor konulara öncelik verir.
+Pomodoro yöntemi: 25 dakikalık kısa çalışma + 5 dakika mola döngüleriyle ilerler.
+Karma yöntem: Farklı teknikleri birleştirir, daha esnektir.
+
+Peki günlük hedefimi bitiremezsem ne olur?
+O zaman algoritma bir kontrol adımı içerebilir:
+Günün sonunda yapılmayan görevler bir sonraki güne eklenir.
+Bu şekilde plan esnek ve gerçekçi olur.
+
+Bu süreci algoritmaya dönüştürmenin avantajı nedir?
+Algoritmalar süreci daha net, tekrar edilebilir ve ölçülebilir hale getirir.
+Ne çalışacağını tahmin etmek yerine, sistemli bir planla ilerlersin.
+Böylece hiçbir ders atlanmaz ve zaman daha verimli kullanılır.
+
+Problemini çözmenin farklı yöntemi 
+
+problemini çözmenin birden fazla yöntemi varır. Aşağıda farklı çözüm yolları 
+1. Klasik Planlama Yöntemi (Zaman Temelli Yaklaşım)
+Bu, az önceki pseudocode’da kullanılan yöntemdir.
+Temel fikir: Belirli bir süreyi her derse paylaştırmak.
+Avantajı: Disiplin sağlar, zamanı verimli kullanırsın.
+Dezavantajı: Esnek değildir; planı bozan bir durum olursa yeniden düzenlemek gerekir.
+2. Öncelik Temelli Planlama (Zorluk Odaklı Yaklaşım)
+Temel fikir: En zor veya en önemli derslere önce odaklanmak.
+Avantajı: Sınavda en çok puan kazandıran konulara daha iyi hazırlanırsın.
+Dezavantajı: Kolay dersler geri plana atılırsa son anda sıkışıklık olabilir.
+3. Pomodoro veya Kısa Süreli Odak Yöntemi
+Temel fikir: 25 dakika ders + 5 dakika mola şeklinde döngülerle çalışmak.
+Avantajı: Dikkat dağılmadan kısa süreli ama yoğun çalışma sağlar.
+Dezavantajı: Uzun konular için sık bölünmeler bazen verimi azaltabilir.
+Sonuç Olarak
+Farklı çözüm yolları olsa da en etkili yöntem kişiye göre değişir:
+Mesela
+Dikkati kolay dağılıyorsa → Pomodoro yöntemi,
+Çok dersi varsa → Zaman temelli,
+Bazı derslerde çok eksiği varsa → Öncelik temelli en eygun olabilir.
