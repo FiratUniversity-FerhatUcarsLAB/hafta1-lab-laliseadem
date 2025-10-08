@@ -1,4 +1,103 @@
-Öğrenci No:
-AD-SOYAD:
-
+Öğrenci No: 240541610
+AD-SOYAD: Lalise Adem Wado
+Sayı tahmin oyununda optimal strateji
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+
+Problem Analizi
+
+Oyunda bir oyuncu gizli bir sayı seçer, diğeri bu sayıyı tahmin eder.
+Her tahminde “daha büyük”, “daha küçük” veya “doğru” cevabı alınır.
+Amaç, en az tahminle doğru sayıyı bulmaktır.
+Bu durum, karar verme ve rakip hamlelerini öngörme problemi oluşturur.
+Hedef
+Sınır sayıları ve verilen ipuçlarını kullanarak, en kısa sürede doğru sayıya ulaşan bir algoritma geliştirmek.
+
+Çözüm Mantığı
+Klasik Strateji (Optimal):
+İkili Arama (Binary Search) kullan.
+Her tahminde aralığın ortasını seç → log₂(N) adımda sonucu bul.
+Rakip akıllıysa:
+En kötü durumu düşün (minimax yaklaşımı).
+Rakip bazen yanlış söylüyorsa:
+Ek sorgularla doğrulama yap (hata toleranslı strateji).
+
+Adım adım pseudocode.
+
+BAŞLA
+1. L <- minimum sayı
+2. R <- maksimum sayı
+3. tahmin_sayisi <- 0
+
+4. while L <= R do5.     m <- floor((L + R) / 2)        // orta değeri al
+6.     tahmin_sayisi <- tahmin_sayisi + 1
+7.     cevap <- TahminEtVeCevapAl(m) // "daha_büyük", "daha_küçük" veya "doğru"
+8.
+9.     if cevap == "doğru" then
+10.         YAZ "Bulundu:", m, "Tahmin sayısı:", tahmin_sayisi
+11.         DUR
+12.     else if cevap == "daha_büyük" then
+13.         L <- m + 1
+14.     else if cevap == "daha_küçük" then
+15.         R <- m - 1
+16.     else
+17.         YAZ "Geçersiz cevap — lütfen 'daha_büyük', 'daha_küçük' veya 'doğru' girin."
+18.         // isteğe bağlı: tekrar sor veya hatayı işle
+19.     end if
+20. end while
+
+21. YAZ "Tutarsız cevaplar veya sayı bulunamadı."
+BİTİR
+
+LLM ile soru ve cevab
+
+Sayı tahmin oyunu probleminin özü nedir?
+Gizli bir sayıyı belirli bir aralıkta, sınırlı sayıda tahminle bulmak. Her tahmin “doğru”, “daha büyük” veya “daha küçük” olarak cevaplanır.
+Bu algoritmanın amacı nedir?
+En az tahminle gizli sayıyı bulmak. Büyük aralığı her adımda ikiye bölerek verimli bir yol izlemektir.
+Pseudocode nasıl yazılır?
+
+BAŞLA
+L = minimum, R = maksimum
+TEKRAR:
+    m = (L + R) / 2
+    Cevap = kontrolEt(m)
+    Eğer Cevap == "doğru" → Bitir
+    Eğer Cevap == "daha_büyük" → L = m + 1
+    Eğer Cevap == "daha_küçük" → R = m - 1
+BİTİR
+
+Neden her seferinde ortadaki sayıyı tahmin ediyoruz?
+Ortadaki sayıyı seçmek, kalan olasılıkları ikiye bölerek tahmin sayısını en aza indirir.
+Kaç tahminle garanti bulunabilir?
+Aralıkta N sayı varsa en fazla ceil(log2(N)) tahminde bulunabiliriz.
+Tahmin hakkı yeterli değilse ne olur?
+Tüm sayıları garantiyle bulmak mümkün olmayabilir. Yine de binary search en iyi şansı verir.
+Algoritma kullanmanın avantajı nedir?
+Tahminler sistemli, hızlı ve verimli olur. Rastgele tahmin yerine, minimum deneme ile sayıyı bulmayı garanti eder.
+
+Farklı çözüm yolları
+
+Sayı tahmin oyununda binary search en optimal strateji olsa da, farklı çözüm yolları da vardır.
+1. Binary Search (Orta Tahmin Stratejisi)
+Her zaman aralığın ortasından tahmin yapılır.
+Avantajları: En az tahminle garanti sonuç verir (worst-case ceil(log2(N))). Basit ve sistemli.
+Dezavantajları: Tahmin hakkı çok sınırlıysa bazen son adımda yetmeyebilir.
+2. Lineer Arama (Sırasıyla Deneme)
+1’den N’e kadar sırayla tahmin edilir.
+Avantajları: Basit ve anlaşılır, algoritmik bilgi gerektirmez.
+Dezavantajları: Çok sayıda tahmin gerekebilir (O(N)), özellikle büyük aralıkta verimsiz.
+Tahmin hakkı sınırlıysa çoğu zaman işe yaramaz.
+3. Rastgele Tahmin (Random Search)
+Aralıktan rastgele bir sayı seçilir ve tahmin edilir. 
+Avantajları: Belirsiz veya tahmin hakkı çok azsa küçük şans stratejisi olarak kullanılabilir.
+Dezavantajları: Garantili çözüm yoktur. Kötü şansla çok fazla tahmin gerekebilir.
+4. Öncelik/İpucu Temelli Tahmin
+Bazı sayıların daha olası olduğu biliniyorsa önce onlara tahmin yapılır.
+Avantajları: Tahmin hakkı sınırlıysa şansı artırabilir.
+Mantıklı tahminlerle daha hızlı bulma ihtimali.
+Dezavantajları:Sadece olasılık tahmini, garanti vermez.
+
+Sonuç olarak
+Binary search, kesin çözüm isteyenler için en iyi yöntemdir.
+Lineer ve rastgele stratejiler yalnızca küçük aralıklar veya tahmin hakkı çok sınırlıysa mantıklıdır.
+Öncelik temelli yöntemler ise ekstra bilgi olduğunda avantaj sağlar (ör. oyun ipuçları veya olasılık dağılımları).
