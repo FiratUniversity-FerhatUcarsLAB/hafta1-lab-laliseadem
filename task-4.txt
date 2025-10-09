@@ -1,4 +1,103 @@
-Öğrenci No:
-AD-SOYAD:
-
+Öğrenci No: 240541610
+AD-SOYAD: Lalise Adem Wado
+N kişi için adil pasta paylaşımı
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+Problem Analizi: Adil Pasta Paylaşımı
+Problem: Pastayı  kişi arasında, her birinin eşit miktarda alacağı şekilde paylaşmak.
+Zorluk: Pasta düzensiz şekilli veya farklı boyutlarda olabilir; amaç alanın eşit dağıtılmasıdır.
+Kısıtlar: Kesme sayısını minimum tutmak; adil paylaşımı sağlamak; her  için uygulanabilir olmak.
+Amaç
+Her kişinin eşit pay almasını sağlamak.
+Algoritmanın verimli ve uygulanabilir olması.
+Yaklaşım: Böl ve Fethet
+1. Böl: Pastayı iki parçaya ayır.
+Eğer  çift ise: parçaları  kişilik gruplara ayır.
+Eğer  tek ise: bir parçayı bir kişiye ver, kalan kısmı  kişi için böl.
+2. Fethet (Çöz): Her parça için aynı bölme işlemini rekürsif olarak uygula.
+3. Sonlandır: Her kişi bir parça alana kadar devam et.
+Avantajlar
+Her şekil ve boyuttaki pastalar için uygulanabilir.
+Rekürsif yapı sayesinde modüler ve ölçeklenebilir.
+Kesin olarak eşit pay sağlar.
+
+Adım adım pseudocode
+
+BAŞLA
+FUNCTION Paylas(pasta, kisi_sayisi):
+    alan = PastaAlani(pasta)
+    pay = alan / kisi_sayisi
+
+    IF kisi_sayisi == 1 THEN
+        Ver(pasta, 1)  // Tek kişi tüm pasta
+        RETURN
+    ENDIF
+
+    IF kisi_sayisi % 2 == 0 THEN
+        // Kişi sayısı çift
+        grup_sayisi = kisi_sayisi / 2
+        parca1, parca2 = PastaIkiyeBol(pasta)
+        Paylas(parca1, grup_sayisi)
+        Paylas(parca2, grup_sayisi)
+    ELSE
+        // Kişi sayısı tek
+        // İlk kişiye pay kadar pasta ver
+        parca1 = PastaParcala(pasta, pay)
+        Ver(parca1, 1)
+        
+        // Kalan pasta diğer kişiler için
+        parca2 = KalanPasta(pasta, parca1)
+        Paylas(parca2, kisi_sayisi - 1)
+    ENDIF
+END FUNCTION
+
+BITIR
+
+LLM ile soru cevab:
+
+Pasta paylaşımı problemi nedir?
+Pastayı  kişi arasında eşit şekilde bölmek, yani herkesin aynı miktarda pasta almasını sağlamaktır.
+Neden böl ve fethet yaklaşımı kullanıyoruz?
+Çünkü pasta tek seferde eşit şekilde bölünemeyebilir. Böl ve fethet ile pastayı adım adım ikiye bölüp, her parça için aynı işlemi tekrar uygulayarak herkesin eşit pay almasını sağlarız.
+Peki kişi sayısı tek olursa ne yapıyoruz?
+Tek kişi olduğunda, ilk parça tam olarak kişi başı pay kadar ayrılır. Kalan pasta geri kalan  kişi için tekrar bölünür.
+Toplam pasta alanını  olarak alırsak, kişi başına pay:
+pay = A / N
+Pasta bölme işlemi nasıl gerçekleşiyor?
+Pasta ikiye bölünür:
+Kişi sayısı çift ise, her parçayı eşit sayıda kişiye tekrar paylaşırız.
+Kişi sayısı tek ise, ilk kişi payını alır, kalan pasta diğer kişiler için paylaşılır.
+Bu algoritmanın avantajı nedir?
+Karmaşık şekilli pastalar bile adil ve eşit şekilde paylaşılabilir. Rekürsif yapı sayesinde algoritma modüler ve ölçeklenebilir olur.
+
+problemini böl ve fethet dışında çözmenin bazı yöntemleri ve avantaj/dezavantajları.
+
+1. Doğrudan Bölme (Brute Force / Simple Split)
+Yöntem: Pasta alanını doğrudan kişi sayısına bölüp eşit parçalar ayırmak.
+Avantaj: Çok basit, hızlı uygulanabilir.
+Dezavantaj: Pasta düzensiz şekilli veya karmaşık ise eşit alanı bulmak zor; hassas kesimler gerekebilir.
+
+2. Kesme ve Seçme Yöntemi (Cut-and-Choose)
+Yöntem:
+1. İlk kişi pastayı iki eşit parça şeklinde keser.
+2. Diğer kişi daha çok beğendiği parçayı seçer.
+3. Kalan kişiler için aynı mantıkla tekrar uygulanır.
+Avantaj: Herkes kendisi için adil olduğunu hisseder; özellikle 2 kişi için klasik ve adil.
+Dezavantaj: Çok kişili durumlarda karmaşık ve yavaş; her kişinin tercihini hesaba katmak gerekir.
+
+3. Matematiksel Alan Hesabı / Ölçümler
+Yöntem: Pasta alanını hesaplayıp her parça için eşit alan ölçülerek kesim yapılır.
+Avantaj: Matematiksel olarak kesin eşitlik sağlar; her şekil için uygulanabilir.
+Dezavantaj: Karmaşık şekillerde alan hesaplamak zor olabilir; ölçüm hataları oluşabilir.
+
+4. Rastgele Paylaştırma + Dengeleme
+Yöntem: Pasta rastgele kesilir, sonra kişi başı alan eşitlenir (kalan küçük parçalar eklenir veya çıkarılır).
+Avantaj: Basit ve hızlı uygulanabilir; kesim sayısını azaltabilir.
+Dezavantaj: İlk rastgele kesimler eşitlik sağlamayabilir; adalet hissi azalabilir.
+
+5. Böl ve Fethet (Recap)
+Yöntem: Pasta ikiye bölünür, her alt grup için tekrar bölünür, rekürsif olarak devam eder.
+Avantaj: Karmaşık şekiller için ideal; herkes eşit pay alır; algoritmik ve modüler.
+Dezavantaj: Rekürsif yapısı bazı durumlarda daha fazla hesaplama ve kesim gerektirebilir.
+
+Özetle: Basit ve küçük pastalar için doğrudan bölme veya cut-and-choose yeterli olabilir.
+Karmaşık veya çok kişili durumlarda böl ve fethet veya matematiksel alan hesaplama daha güvenilir ve adildir.
