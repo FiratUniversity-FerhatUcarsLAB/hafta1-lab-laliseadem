@@ -1,4 +1,118 @@
-Öğrenci No:
-AD-SOYAD:
-
+Öğrenci No:240541610
+AD-SOYAD: Lalise Adem Wado
+Sınıf notlarını yüksekten düşüğe sıralama
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+Problem Analizi:
+Bir sınıftaki öğrencilerin notları veriliyor. Amaç, notları yüksekten düşüğe sıralamak. Sıralama, veri düzenleme ve karşılaştırma mantığına dayanan bir algoritma problemi oluşturulmesi gerekir.
+Hedef:
+Verilen not listesini kullanarak, en kısa sürede ve doğru şekilde notları büyükten küçüğe sıralayan bir algoritma geliştirmek.
+Çözüm Mantığı:
+1. Basit Strateji (Doğrudan Karşılaştırma):
+Her elemanı diğerleriyle karşılaştır, gerektiğinde yer değiştir.
+Örnek algoritmalar: Bubble Sort, Selection Sort. Küçük veri setlerinde yeterli ama büyük listelerde yavaş.
+2. Verimli Strateji (Böl ve Fethet): Listenin ortasından bölerek daha büyük ve küçük değerleri ayrıştır.
+Örnek algoritmalar: Merge Sort, Quick Sort.Daha büyük listeler için uygun.
+3. Özel Durumlar: Aynı notu alan öğrenciler: Kararsız sıralama olabilir (aynı notların sıralama önceliği).
+Selection sort adım adım pseudocode:
+BAŞLA
+
+Girdi: Notlar[]
+n <- Notlar dizisinin uzunluğu
+
+İÇİN i ← 0'DAN n-2'YE KADAR TEKRARLA
+    maxIndex ← i
+    İÇİN j ← i+1'DEN n-1'E KADAR TEKRARLA
+        EĞER Notlar[j] > Notlar[maxIndex] İSE
+            maxIndex ← j
+        SON
+    SON
+
+    EĞER maxIndex ≠ i İSE
+        GEÇİCİ ← Notlar[i]
+        Notlar[i] ← Notlar[maxIndex]
+        Notlar[maxIndex] ← GEÇİCİ
+    SON
+SON
+
+Çıktı: Notlar[]
+
+BİTİR
+
+LLM ile soru cevab.
+Seni bu problem hakkında sorular soracağım net ve kısa cevap var
+
+Tamam.
+Bu sıralama problemiyle ilgili sorularını sor,
+kısa ve net şekilde cevaplayacağım.
+Elimde bir sınıfın not listesi var. Bunları en yüksekten en düşüğe nasıl sıralayabilirim?
+Bu işlem için bir sıralama algoritması kullanılır. Basit bir yöntem olarak Selection Sort kullanılabilir.
+Selection Sort nasıl çalışıyor?
+Listenin başından başlanır. Her adımda kalan notlar arasında en büyük olan bulunur ve o, doğru sıradaki yerine yerleştirilir. Bu işlem listenin sonuna kadar devam eder.
+Her turda sadece bir notun yerini mi değiştiriyoruz?
+Evet. Her turda kalan notlar içinde en büyük not bulunur ve uygun konuma taşınır.
+Neden iç içe döngü kullanıyoruz?
+Dış döngü, sıralama adımlarını yönetir. İç döngü ise o anda en büyük notu bulmak için tüm kalan elemanları kontrol eder.
+Bu algoritma her zaman aynı hızda mı çalışır?
+Yaklaşık olarak evet. Zaman karmaşıklığı O(n²)’dir. Yani öğrenci sayısı arttıkça işlem süresi hızlı şekilde artar.
+Bilgisayarda hazır sort() komutunu kullansam fark eder mi?
+Hazır sort() fonksiyonları genellikle daha verimli algoritmalar kullanır. Ancak burada amaç sıralamanın mantığını öğrenmektir.
+
+Bu problemi çözmenin başka yöntemleri tartış
+Bu problemi çözmek için birkaç farklı yöntem vardır:
+1. Selection Sort:
+En büyük elemanı bulup başa yerleştirir. Basit ama yavaştır (O(n²)).
+2. Bubble Sort:
+Yan yana karşılaştırmalar yapar, büyükleri üste “kabarcık” gibi çıkarır. Basit ama verimsizdir (O(n²)).
+3. Insertion Sort:
+Her elemanı sıralı kısma doğru yere ekler. Küçük veri için iyidir (O(n²)).
+4. Merge Sort:
+Diziyi ikiye bölüp sıralı şekilde birleştirir. Hızlı ve kararlıdır (O(n log n)).
+5. Quick Sort:
+Pivot seçip küçük–büyük şeklinde bölerek sıralar. Genelde çok hızlıdır (ortalama O(n log n)).
+6. Hazır sıralama fonksiyonları:
+Programlama dillerinde bulunan sort() gibi fonksiyonlar, bu algoritmaların optimize edilmiş hâllerini kullanır.
+Hangisi en verimli
+En verimli olan Quick Sort ve Merge Sort’tur.
+Quick Sort: Ortalama durumda en hızlısıdır (O(n log n)), az bellek kullanır.
+Merge Sort: Her durumda dengelidir (O(n log n)) ve kararlıdır (eşit elemanların sırası korunur).
+Kısaca:
+Küçük veriler için fark azdır.
+Büyük verilerde Quick Sort genelde en verimli seçenektir.
+Bu problemi quick sort ile çözen pseudocode oluştur
+BAŞLA
+Girdi: Notlar[]
+low ← 0
+high ← Notlar dizisinin uzunluğu - 1
+ÇAĞIR QuickSort(Notlar, low, high)
+Çıktı: Notlar[]
+BİTİR
+FONKSİYON QuickSort(Notlar, low, high)
+    EĞER low < high İSE
+        p ← Böl(Notlar, low, high)
+        QuickSort(Notlar, low, p - 1)
+        QuickSort(Notlar, p + 1, high)
+    SON
+BİTİR FONKSİYON
+
+
+FONKSİYON Böl(Notlar, low, high)
+    pivot ← Notlar[high]
+    i ← low - 1
+
+    İÇİN j ← low'DAN high - 1'E KADAR TEKRARLA
+        EĞER Notlar[j] ≥ pivot İSE
+            i ← i + 1
+            GEÇİCİ ← Notlar[i]
+            Notlar[i] ← Notlar[j]
+            Notlar[j] ← GEÇİCİ
+        SON
+    SON
+
+    GEÇİCİ ← Notlar[i + 1]
+    Notlar[i + 1] ← Notlar[high]
+    Notlar[high] ← GEÇİCİ
+
+    DÖNDÜR i + 1
+BİTİR FONKSİYON
+Bu algoritma notları yüksekten düşüğe sıralar.
+Ortalama karmaşıklığı O(n log n), kötü durumda O(n²)’dir.
