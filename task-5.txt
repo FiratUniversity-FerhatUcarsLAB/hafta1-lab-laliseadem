@@ -1,4 +1,94 @@
-Öğrenci No:
-AD-SOYAD:
-
+Öğrenci No:240541610
+AD-SOYAD: Lalise Adem Wado
+Sosyal medyada viral olma
 Lütfen seçtiğiniz algoritmaya ait çözümü ve diğer isterleri aşağıya ekleyiniz:
+
+Problem analizi
+
+Amaç: Bir içeriğin mümkün olduğunca fazla kişiye ulaşması.
+Girdiler: İçerik türü, paylaşım zamanı, platform, takipçi sayısı ve etkileşim oranı.
+Çıktı: İçeriğin ulaşacağı kişi sayısı ve viral olma olasılığı.
+Viral Olmayı Etkileyen Faktörler:
+İçerik kalitesi (ilginç, duygusal, eğlenceli)
+Paylaşım zamanı ve platform dinamikleri
+Takipçi ağının büyüklüğü ve paylaşım olasılığı
+Trendler ve hashtag kullanımı
+Problem Özelliği: Olasılıksal bir süreç; deterministik değil.
+Başarı Stratejisi:
+1. İçeriği trend ve ilgiye göre optimize et
+2. Etkili başlangıç paylaşımı yap
+3. Yayılma olasılıklarını simüle et ve etkileşimi artır
+
+Pseudocde
+
+BAŞLA
+1. İçerik oluştur ve başlangıç kullanıcılarını seç
+2. Döngü başlat: içerik yayılmaya devam ettiği sürece
+      a. Her kullanıcı içeriği görür
+      b. Beğenirse paylaşma olasılığına göre paylaşır
+      c. Paylaşan kullanıcılar yeni kullanıcıları tetikler
+      d. Trend ve kullanıcı davranışına göre olasılıkları güncelle
+3. Döngü dur: yeni kullanıcı yok veya maksimum iterasyon
+4. Toplam erişim ve viral skoru hesapla
+BİTİR
+
+LLM ile soru cevab
+
+Hangi faktörler viral olmayı etkiler?
+İçerik kalitesi, paylaşım zamanı, platform algoritması, takipçi ağı ve trend kullanımı.
+
+Bunu algoritma gibi nasıl düşünebiliriz?
+İçeriğin yayılması bir ağ üzerinden yayılma problemi gibi düşünülebilir:
+Başlangıç kullanıcıları içerikleri görür
+Beğenirlerse paylaşır
+Paylaşanlar yeni kullanıcıları tetikler
+Süreç, artık yeni kullanıcı kalmayana kadar devam eder
+
+Peki viral olma olasılığını tahmin edebilir miyiz?
+Yaklaşık olarak evet, kullanıcı sayısı × paylaşım olasılığı × erişim zinciri ile bir tahmin yapılabilir, ama kesin değildir çünkü kullanıcı davranışı değişkendir.
+
+Viral olmayı sadece içerik kalitesi belirler mi, yoksa başka algoritmik faktörler de var mı?
+Hayır, içerik kalitesi önemli ama algoritmik faktörler de kritik. Örneğin platformun öneri sistemi, paylaşım sıklığı, takipçi etkileşim oranı ve paylaşım zincirinin yapısı.
+
+Platformun öneri algoritmasını dikkate alırsak, paylaşım zamanını optimize etmek neden önemli?
+Çünkü kullanıcılar aktif oldukları zaman içerik daha hızlı görünür ve paylaşılır. Bu da zincirin erken aşamalarda daha geniş yayılmasını sağlar.
+
+Başlangıç kullanıcılarını seçerken nelere dikkat etmeliyiz?
+Yüksek etkileşimli ve geniş takipçi ağı olan kullanıcılar tercih edilmeli. Bu, viral yayılmayı başlatmak için kritik bir stratejidir.
+
+Viral yayılmayı modellemek için hangi algoritma mantığını kullanabiliriz?
+Ağ üzerinden yayılma mantığı kullanabiliriz. Her kullanıcı içerikle etkileşime girer, paylaşırsa yeni kullanıcıları tetikler, süreç kullanıcı kalmayana kadar devam eder.
+
+Bunu üretken algoritma gibi tasarlarsak, hangi optimizasyonları ekleyebiliriz?
+Paylaşım olasılığı, içerik türüne göre ağırlıklandırılabilir, kullanıcıya göre kişiselleştirilebilir ve trendleri otomatik algılayarak döngüye eklenebilir.
+
+Farklı çözüm yolları
+
+1. Ağ Tabanlı Yayılma Modeli (Network-Based)
+İçerik, kullanıcı ağında yayılma zinciri üzerinden modellenir.
+Her kullanıcı, içerik görüp paylaşma olasılığına sahiptir.
+Avantaj: Yayılma dinamiklerini gerçekçi simüle eder.
+Dezavantaj: Kullanıcı ağı büyükse hesaplama karmaşıklığı artar.
+
+2. Olasılıksal Simülasyon (Monte Carlo Yaklaşımı)
+Her paylaşım rastgele bir olasılık ile gerçekleşir ve süreci birçok kez simüle ederiz.
+Avantaj: Belirsizliği ve kullanıcı davranışındaki rastgeleliği modelleyebilir.
+Dezavantaj: Kesin sonuç vermez, sadece olasılık tahmini sağlar.
+
+3. Optimizasyon Algoritmaları
+İçeriğin paylaşım zamanını, başlık ve görsellerini optimize etmek için kullanılır.
+Örnek: Genetik algoritma veya üretken algoritmalar ile en yüksek viral skoru hedeflemek.
+Avantaj: İçeriğin etkisini maksimize eder.
+Dezavantaj: Karmaşık ve veri yoğun; algoritmayı doğru parametrelerle ayarlamak gerekir.
+
+4. Makine Öğrenmesi / Öneri Sistemleri
+Geçmiş veriye dayalı olarak hangi içeriklerin viral olma olasılığı yüksek tahmin edilir.
+Örnek: TikTok, Instagram algoritmaları.
+Avantaj: Veri odaklı ve öğrenmeye dayalıdır, tahminler zamanla iyileşir.
+Dezavantaj: Yeterli veri ve model eğitimi gerekir.
+
+5. Matematiksel Tahmin Modelleri
+Viral olma olasılığı = Başlangıç kullanıcı sayısı × paylaşım olasılığı × zincir uzunluğu.
+Avantaj: Hızlı ve basit bir tahmin sağlar.
+Dezavantaj: Ağ dinamikleri ve kullanıcı davranışı değişkenleri göz ardı edilir
+
